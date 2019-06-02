@@ -1,0 +1,38 @@
+﻿<Window x:Class="lagerking.View.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lagerking"
+        mc:Ignorable="d"
+        Title="Lagerking" Height="586.633" Width="891.5" Background="#FFFDFD00">
+
+    <Window.DataContext>
+        <local:Commands />
+
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/dannebro.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Canvas>
+            <TextBlock Height="37" HorizontalAlignment="Left" Name="LoginHeading" Text="Login Panel" VerticalAlignment="Top" FontSize="25" FontStretch="ExtraCondensed" Canvas.Left="320" Canvas.Top="34"/>
+            <TextBlock Height="50" HorizontalAlignment="Left" Name="textBlockHeading" VerticalAlignment="Top" FontSize="12" FontStyle="Italic" Padding="5" Canvas.Left="164" Canvas.Top="71">  
+            Note: Please login here to view the features of this site. If you are new on this site then <LineBreak /><!--line break-->  
+            please click on  
+           <!--textblock as a Hyperlink.-->  
+            <!--<TextBlock>  
+                 <Hyperlink Click="buttonRegister_Click" FontSize="14" FontStyle="Normal">Register</Hyperlink>  
+            </TextBlock> -->
+            <!--end textblock as a hyperlink-->
+
+            </TextBlock>
+            <TextBlock Height="23" HorizontalAlignment="Left" Name="textBlock1" Text="Username" VerticalAlignment="Top" Width="67" Canvas.Left="209" Canvas.Top="126" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Name="textBlock2" Text="Password" VerticalAlignment="Top" Width="62" Canvas.Left="209" Canvas.Top="168" />
+            <TextBox Height="23" HorizontalAlignment="Left" Name="textBoxEmail" VerticalAlignment="Top" Width="247" Canvas.Left="276" Canvas.Top="126" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Name="passwordBox1" VerticalAlignment="Top" Width="247" Canvas.Left="276" Canvas.Top="168" RenderTransformOrigin="0.261,0.543" />
+            <Button ToolTip="Login on app" Content="Login" Height="23" HorizontalAlignment="Left" Name="button1" VerticalAlignment="Top" Width="104" Canvas.Left="320" Canvas.Top="225" Click="Button1_Click" />
+        </Canvas>
+    </Grid>
+</Window>
