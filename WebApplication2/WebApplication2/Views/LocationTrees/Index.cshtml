@@ -1,0 +1,39 @@
+@model WebApplication2.Models.Location
+
+@{
+    ViewData["Title"] = "Tree in " + Model.Name;
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" asp-route-courseId="@Model.Id">Add tree</a>
+</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">
+            Id
+        </th>
+        <th scope="col">
+            Name
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.LocationTree) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tree.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tree.Name)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Courses" asp-action="Index">Back to List</a>
+</div>
