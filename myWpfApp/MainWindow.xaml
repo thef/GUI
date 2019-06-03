@@ -6,7 +6,57 @@
         xmlns:local="clr-namespace:myWpfApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="TemplateLocation">
+            <WrapPanel>
+                <TextBlock Text="{Binding Path=Id}" Padding="10"/>
+                <TextBlock Text="{Binding Path=Navn}" Padding="10"/>
+                <TextBlock Text="{Binding Path=Vej}" Padding="10"/>
+                <TextBlock Text="{Binding Path=Vejnummer}" Padding="10"/>
+                <TextBlock Text="{Binding Path=Postnummber}" Padding="10"/>
+                <TextBlock Text="{Binding Path=By}" Padding="10"/>
+            </WrapPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="TemplateTree">
+            <WrapPanel>
+                <TextBlock Text="{Binding Path=Type}" Padding="10"/>
+                <TextBlock Text="{Binding Path=Amount}" Padding="10"/>
+            </WrapPanel>
+        </DataTemplate>
+    </Window.Resources>
+
+
+<Window.DataContext>
+    <local:Commands></local:Commands>
+</Window.DataContext>
+
     <Grid>
-        
+        <ListBox HorizontalAlignment="Left" Height="163" Margin="338,30,0,0" VerticalAlignment="Top" Width="457" SelectionChanged="ListBox_SelectionChanged" ItemTemplate="{StaticResource TemplateLocation}" ItemsSource="{Binding }" SelectedItem="{Binding Path=CurrenteLocation}" Background="LightSeaGreen"/>
+        <Menu HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="795"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,30,0,0" TextWrapping="Wrap" Text="{Binding Path=Navn}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,58,0,0" TextWrapping="Wrap" Text="{Binding Path=Vej}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,86,0,0" TextWrapping="Wrap" Text="{Binding Path=Vejnummer}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,114,0,0" TextWrapping="Wrap" Text="{Binding Path=Postnummer}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,142,0,0" TextWrapping="Wrap" Text="{Binding Path=By}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vej" HorizontalAlignment="Left" Margin="30,56,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vejnummer" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top"/>
+        <Label Content="Postnummer" HorizontalAlignment="Left" Margin="30,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="By" HorizontalAlignment="Left" Margin="30,138,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,228,0,0" TextWrapping="Wrap" Text="{Binding Path=Type}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Trætype" HorizontalAlignment="Left" Margin="30,224,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="186,259,0,0" TextWrapping="Wrap" Text="{Binding Path=Amount}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Mængde" HorizontalAlignment="Left" Margin="30,255,0,0" VerticalAlignment="Top"/>
+        <Button Content="Søg" HorizontalAlignment="Left" Margin="186,178,0,0" VerticalAlignment="Top" Width="74" Command="{Binding SearchLocation}"/>
+        <Button Content="Tilføj" HorizontalAlignment="Left" Margin="33,183,0,0" VerticalAlignment="Top" Width="74" Command="{Binding AddLocation}"/>
+        <ListBox HorizontalAlignment="Left" Height="163" Margin="338,224,0,0" VerticalAlignment="Top" Width="457" SelectionChanged="ListBox_SelectionChanged_1" ItemTemplate="{StaticResource TemplateTree}" ItemsSource="{Binding Trees}" Background="LightSeaGreen"/>
+        <Button Content="Tilføj" HorizontalAlignment="Left" Margin="30,306,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddTree}"/>
+        <Button Content="Output" HorizontalAlignment="Left" Margin="186,306,0,0" VerticalAlignment="Top" Width="75" Command="{Binding OutputTree}"/>
+        <Button Content="Gem" HorizontalAlignment="Left" Margin="229,350,0,0" VerticalAlignment="Top" Width="75" Command="{Binding SaveFile}"/>
+        <Label Content="FilNavn:" HorizontalAlignment="Left" Margin="30,365,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="90,369,0,0" TextWrapping="Wrap" Text="{Binding Path= FileName}" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.5,0.5" />
+        <TextBlock HorizontalAlignment="Left" Height="5" Margin="168,367,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="56"/>
+        <Button Content="Åben" HorizontalAlignment="Left" Margin="231,392,0,0" VerticalAlignment="Top" Width="75" Command="{Binding OpenFile}"/>
+
     </Grid>
 </Window>
