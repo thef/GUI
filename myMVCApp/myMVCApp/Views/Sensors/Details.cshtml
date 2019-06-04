@@ -1,0 +1,48 @@
+﻿@model myMVCApp.Models.Sensor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sensor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WoodArt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WoodArt)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SensorId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SensorId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GpsCoordinateLat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GpsCoordinateLat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GpsCoordinateLon)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GpsCoordinateLon)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
